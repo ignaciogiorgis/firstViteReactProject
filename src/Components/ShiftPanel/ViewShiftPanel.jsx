@@ -2,8 +2,8 @@ import React from 'react'
 
 const ShiftPanel = () => {
   return (
-    <div className=''>
-      <h3>Shift Panel</h3>
+    <div className='border-8 border-gray-800 p-16'>
+      <h3 className='uppercase'>Shift Panel</h3>
     </div>
   )
 }
