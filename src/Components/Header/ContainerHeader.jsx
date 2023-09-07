@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export const ContainerHeader = () => {
-  return (
-    <div>ContainerHeader</div>
-  )
-}
+  return <div>ContainerHeader</div>;
+};

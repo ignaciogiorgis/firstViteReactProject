@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react"
 
 export const ContainerForm = () => {
-  return (
-    <div>ContainerForm</div>
-  )
+  return <div>ContainerForm</div>
 }
