@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react"
 
 export const ContainerShiftPanel = () => {
-  return (
-    <div>ContainerShiftPanel</div>
-  )
+  return <div></div>
 }

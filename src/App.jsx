@@ -1,9 +1,9 @@
-import Header from "./Components/Header/ViewHeader" 
+import Header from "./Components/Header/ViewHeader"
 import Form from "./Components/Form/ViewForm"
 import ShiftPanel from "./Components/ShiftPanel/ViewShiftPanel"
 
 function App() {
-return (
+  return (
     <>
       <div className="text-center py-10">
         <Header />
