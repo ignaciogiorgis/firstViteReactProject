@@ -1,6 +1,6 @@
-import Header from "./Components/Header/ViewHeader"
-import Form from "./Components/Form/ViewForm"
-import ShiftPanel from "./Components/ShiftPanel/ViewShiftPanel"
+import Header from "./Components/ViewHeader"
+import Form from "./Components/ViewForm"
+import ShiftPanel from "./Components/ViewShiftPanel"
 
 function App() {
   return (
