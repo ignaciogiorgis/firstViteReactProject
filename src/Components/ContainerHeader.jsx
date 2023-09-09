@@ -1,5 +1,11 @@
-import React from "react";
+import ViewHeader from "./ViewHeader"
 
-export const ContainerHeader = () => {
-  return <div>ContainerHeader</div>;
-};
+const ContainerHeader = () => {
+  return (
+    <div>
+      <ViewHeader />
+    </div>
+  )
+}
+
+export default ContainerHeader
