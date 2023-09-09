@@ -1,5 +1,11 @@
-import React from "react"
+import ViewShiftPanel from "./ViewShiftPanel"
 
-export const ContainerShiftPanel = () => {
-  return <div></div>
+const ContainerShiftPanel = () => {
+  return (
+    <div>
+      <ViewShiftPanel />
+    </div>
+  )
 }
+
+export default ContainerShiftPanel

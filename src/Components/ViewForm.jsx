@@ -1,21 +1,26 @@
-import React, { useState } from "react"
+import Error from "./Error"
 
-const Form = ({}) => {
-  const [name, setName] = useState("")
-  const [lastName, setLastName] = useState("")
-  const [phone, setPhone] = useState("")
-  const [car, setCar] = useState("")
-  const [service, setService] = useState("")
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
-
+const Form = ({
+  name,
+  setLastName,
+  setCar,
+  setName,
+  setPhone,
+  setService,
+  lastName,
+  car,
+  handleSubmit,
+  phone,
+  service,
+  error,
+}) => {
   return (
     <div className="flex justify-center">
       <div>
         <h2 className="text-center text-xl mb-8 uppercase">Entry Form</h2>
         <div className="bg-amber-50 rounded-xl p-20">
           <form action="" onSubmit={handleSubmit}>
+            {error && <Error />}
             <div className="flex flex-col py-2">
               <label className="text-left" htmlFor="">
                 Name
