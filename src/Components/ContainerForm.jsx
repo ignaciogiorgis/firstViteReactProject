@@ -2,12 +2,25 @@ import React, { useState } from "react"
 import ViewForm from "./ViewForm"
 
 const ContainerForm = () => {
-  const [name, setName] = useState("")
-  const [lastName, setLastName] = useState("")
-  const [phone, setPhone] = useState("")
-  const [car, setCar] = useState("")
-  const [service, setService] = useState("")
+  const [dataForm, setDataForm] = useState({
+    name: "",
+    lastName: "",
+    phone: "",
+    car: "",
+    service: "",
+  })
+
+  const { name, lastName, car, phone, service } = dataForm
+
   const [error, setError] = useState(false)
+
+  const handleDataForm = (e) => {
+    setDataForm({
+      ...dataForm,
+      [e.target.id]: e.target.value,
+    })
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     if ([name, lastName, phone, car, service].includes("")) {
@@ -20,17 +33,9 @@ const ContainerForm = () => {
     <div>
       <ViewForm
         handleSubmit={handleSubmit}
-        name={name}
-        lastName={lastName}
-        phone={phone}
-        car={car}
-        service={service}
-        setName={setName}
-        setLastName={setLastName}
-        setPhone={setPhone}
-        setCar={setCar}
-        setService={setService}
         error={error}
+        dataForm={dataForm}
+        handleDataForm={handleDataForm}
       />
     </div>
   )
