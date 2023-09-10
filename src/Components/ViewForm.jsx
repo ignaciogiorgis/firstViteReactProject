@@ -1,19 +1,7 @@
 import Error from "./Error"
 
-const Form = ({
-  name,
-  setLastName,
-  setCar,
-  setName,
-  setPhone,
-  setService,
-  lastName,
-  car,
-  handleSubmit,
-  phone,
-  service,
-  error,
-}) => {
+const Form = ({ handleSubmit, dataForm, handleDataForm, error }) => {
+  const { name, lastName, car, phone, service } = dataForm
   return (
     <div className="flex justify-center">
       <div>
@@ -31,7 +19,7 @@ const Form = ({
                 id="name"
                 placeholder="enter your name"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => handleDataForm(e)}
               />
             </div>
             <div className="flex flex-col py-2">
@@ -44,7 +32,7 @@ const Form = ({
                 id="lastName"
                 placeholder="enter your lastname"
                 value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+                onChange={(e) => handleDataForm(e)}
               />
             </div>
             <div className="flex flex-col py-2">
@@ -57,7 +45,7 @@ const Form = ({
                 id="phone"
                 placeholder="enter your phone"
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={(e) => handleDataForm(e)}
               />
             </div>
             <div className="flex flex-col py-2">
@@ -70,7 +58,7 @@ const Form = ({
                 id="car"
                 placeholder="enter your car type"
                 value={car}
-                onChange={(e) => setCar(e.target.value)}
+                onChange={(e) => handleDataForm(e)}
               />
             </div>
             <div className="flex flex-col py-2">
@@ -83,7 +71,7 @@ const Form = ({
                 id="service"
                 placeholder="enter your service type"
                 value={service}
-                onChange={(e) => setService(e.target.value)}
+                onChange={(e) => handleDataForm(e)}
               />
             </div>
             <div>
