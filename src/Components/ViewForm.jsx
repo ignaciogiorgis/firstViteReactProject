@@ -5,8 +5,8 @@ const Form = ({ handleSubmit, dataForm, handleDataForm, error }) => {
   return (
     <div className="flex justify-center">
       <div>
-        <h2 className="text-center text-xl mb-8 uppercase">Entry Form</h2>
-        <div className="bg-amber-50 rounded-xl p-20">
+        <h2 className="text-center text-xl mb-8 uppercase ">Entry Form</h2>
+        <div className="bg-amber-50 border shadow-lg rounded-xl p-20">
           <form action="" onSubmit={handleSubmit}>
             {error && <Error />}
             <div className="flex flex-col py-2">
