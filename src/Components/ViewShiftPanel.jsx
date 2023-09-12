@@ -1,14 +1,15 @@
-import React from "react"
-
 const ShiftPanel = ({ shifts }) => {
   return (
     <div>
       <h3 className="uppercase mb-8 text-xl">Shift Panel</h3>
       <div className="h-screen overflow-y-auto">
         {shifts.map((shift) => {
-          const { name, lastName, phone, car, service } = shift || {}
+          const { name, lastName, phone, car, service, id } = shift || {}
           return (
-            <div className="bg-amber-50 rounded-xl p-16 grid grid-cols-2 gap-4 mb-4 border shadow-lg">
+            <div
+              key={id}
+              className="bg-amber-50 rounded-xl p-16 grid grid-cols-2 gap-4 mb-4 border shadow-lg"
+            >
               <div>
                 <p className="text-left">
                   Name: <span className="font-bold">{name}</span>

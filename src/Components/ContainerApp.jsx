@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import ViewForm from "./ViewForm"
 import ViewShiftPanel from "./ViewShiftPanel"
 import ViewHeader from "./ViewHeader"
+import generateId from "../utils/utils"
 
 const ContainerForm = () => {
   const [dataForm, setDataForm] = useState({
@@ -10,6 +11,7 @@ const ContainerForm = () => {
     phone: "",
     car: "",
     service: "",
+    id: generateId(),
   })
 
   const { name, lastName, car, phone, service } = dataForm
@@ -31,15 +33,15 @@ const ContainerForm = () => {
       setError(true)
     } else {
       setError(false)
+      setShifts([...shifts, dataForm])
+      setDataForm({
+        name: "",
+        lastName: "",
+        phone: "",
+        car: "",
+        service: "",
+      })
     }
-    setShifts([...shifts, dataForm])
-    setDataForm({
-      name: "",
-      lastName: "",
-      phone: "",
-      car: "",
-      service: "",
-    })
   }
   return (
     <div>
