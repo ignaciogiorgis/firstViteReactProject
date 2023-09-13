@@ -19,6 +19,7 @@ const ContainerForm = () => {
   const [error, setError] = useState(false)
 
   const [shifts, setShifts] = useState([])
+  const [shift, setShift] = useState({})
 
   const handleDataForm = (e) => {
     setDataForm({
@@ -29,19 +30,35 @@ const ContainerForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
     if ([name, lastName, phone, car, service].includes("")) {
       setError(true)
     } else {
       setError(false)
-      setShifts([...shifts, dataForm])
-      setDataForm({
-        name: "",
-        lastName: "",
-        phone: "",
-        car: "",
-        service: "",
-      })
+      if (shift.id) {
+        dataForm.id = shift.id
+        const newShifts = shifts.map((shiftState) =>
+          shiftState.id === shift.id ? dataForm : shiftState
+        )
+        setShifts(newShifts)
+        setShift({})
+      } else {
+        const newId = generateId()
+        setShifts([...shifts, { ...dataForm, id: newId }])
+      }
     }
+    setDataForm({
+      name: "",
+      lastName: "",
+      phone: "",
+      car: "",
+      service: "",
+    })
+  }
+
+  const deleteShift = (id) => {
+    const shiftsNew = shifts.filter((element) => element.id !== id)
+    setShifts(shiftsNew)
   }
   return (
     <div>
@@ -55,10 +72,18 @@ const ContainerForm = () => {
             error={error}
             dataForm={dataForm}
             handleDataForm={handleDataForm}
+            shift={shift}
+            setDataForm={setDataForm}
+            setShift={setShift}
           />
         </div>
         <div className="text-center">
-          <ViewShiftPanel shifts={shifts} />
+          <ViewShiftPanel
+            shifts={shifts}
+            setShift={setShift}
+            deleteShift={deleteShift}
+            shift={shift}
+          />
         </div>
       </div>
     </div>
