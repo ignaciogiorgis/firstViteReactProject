@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import ViewForm from "./ViewForm"
 import ViewShiftPanel from "./ViewShiftPanel"
 import ViewHeader from "./ViewHeader"
@@ -20,6 +20,19 @@ const ContainerForm = () => {
 
   const [shifts, setShifts] = useState([])
   const [shift, setShift] = useState({})
+
+  useEffect(() => {
+    const getLocalStorage = () => {
+      const shiftsLocalStorage =
+        JSON.parse(localStorage.getItem("shifts")) ?? []
+      setShifts(shiftsLocalStorage)
+    }
+    getLocalStorage()
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("shifts", JSON.stringify(shifts))
+  }, [shifts])
 
   const handleDataForm = (e) => {
     setDataForm({
