@@ -1,6 +1,26 @@
+import { useEffect } from "react"
 import Error from "./Error"
 
-const Form = ({ handleSubmit, dataForm, handleDataForm, error }) => {
+const Form = ({
+  handleSubmit,
+  dataForm,
+  handleDataForm,
+  error,
+  shift,
+  setDataForm,
+}) => {
+  useEffect(() => {
+    if (Object.keys(shift).length > 0) {
+      setDataForm({
+        name: shift.name,
+        lastName: shift.lastName,
+        phone: shift.phone,
+        car: shift.car,
+        service: shift.service,
+      })
+    }
+  }, [shift])
+
   const { name, lastName, car, phone, service } = dataForm
   return (
     <div className="flex justify-center">
@@ -75,10 +95,12 @@ const Form = ({ handleSubmit, dataForm, handleDataForm, error }) => {
               />
             </div>
             <div>
-              <input
-                className="rounded-md p-2 mt-6 border-2 border-solid  border-gray-800 hover:border-solid focus:outline-none focus:ring focus:ring-violet-300 cursor-pointer placeholder:p-2"
+              <button
+                className="bg-slate-600 px-8 py-2 mt-4 text-gray-50 rounded-lg hover:bg-slate-900 cursor-pointer placeholder:p-2"
                 type="submit"
-              />
+              >
+                {shift.id ? "Edit" : "Send"}
+              </button>
             </div>
           </form>
         </div>
